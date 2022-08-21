@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+:root {
+  --background: hsl(240, 78%, 98%);
+  --light-blue: hsl(236, 72%, 79%);
+  --dark-blue: hsl(237, 63%, 64%);
+  --gradient: linear-gradient(to right, var(--light-blue), var(--dark-blue));
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--background);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bg-bottom,
+.bg-top {
+  position: absolute;
+  pointer-events: none;
+}
+
+.bg-bottom {
+  bottom: 0;
+  left: 0;
+  height: 50%;
+}
+
+.bg-top {
+  right: 0;
+  top: 0;
+  height: 85%;
+}
+
+.title {
+  font-size: 3.2rem;
+  color: hsl(232, 13%, 33%);
+}
+
+.toggler-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.toggler-wrapper .toggler {
+  position: relative;
+  cursor: pointer;
+  width: 8rem;
+  border-radius: 50rem;
+  background: var(--gradient);
+  height: 4.2rem;
+  transition: 0.15s ease;
+}
+
+.toggler-wrapper .toggler:hover {
+  filter: brightness(1.2);
+}
+
+.toggler-wrapper .toggler.monthly .ball {
+  right: 0.45rem;
+}
+
+.toggler-wrapper .toggler.annually .ball {
+  right: 3.95rem;
+}
+
+.toggler-wrapper .toggler .ball {
+  position: absolute;
+  transition: 0.2s ease;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.6rem;
+  height: 3.6rem;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.toggler-wrapper span {
+  font-size: 1.8rem;
+  color: hsl(233, 13%, 49%);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.plans {
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  margin-top: 2.5rem;
+  position: sticky;
+  height: 37.5rem;
+  z-index: 10;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  height: 100%;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.plan.professional {
+  height: calc(100% + 6rem);
+  background: var(--gradient);
+}
+
+.plan-name {
+  color: hsl(232, 13%, 33%);
+}
+
+.plan.professional .plan-name {
+  color: #fff;
+}
+
+.plan.professional .annually-price,
+.plan.professional .monthly-price {
+  color: #fff;
+}
+
+.annually-price,
+.monthly-price {
+  margin: 1.5rem 0;
+  font-size: 4.6rem;
+  color: hsl(233, 13%, 49%);
+}
+
+.plans.monthly .annually-price {
+  display: none;
+}
+
+.plans.annually .monthly-price {
+  display: none;
+}
+
+.plan .benefits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.6rem;
+  color: hsl(233, 13%, 49%);
+}
+
+.plan.professional .benefits {
+  color: #fff;
+}
+
+.plan .learn-more {
+  transition: 0.15s ease;
+  cursor: pointer;
+  background: var(--gradient);
+  outline: none;
+  text-transform: uppercase;
+  padding: 1.5rem;
+  width: 85%;
+  margin-top: 3rem;
+  font-size: 1.8rem;
+  color: #fff;
+  border-radius: 0.6rem;
+  border: 2px solid transparent;
+}
+
+.plan .learn-more:hover {
+  background: transparent;
+  color: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
+}
+
+.plan.professional .learn-more {
+  color: var(--dark-blue);
+  background: #fff;
+}
+
+.plan.professional .learn-more:hover {
+  color: #fff;
+  border-color: #fff;
+  background: transparent;
+}
+
+.attribution {
+  font-size: 9px;
+  position: absolute;
+  top: 0rem;
+  width: 100%;
+  text-align: end;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 940px) {
+  .plan {
+    width: 25rem;
+  }
+
+  .annually-price,
+  .monthly-price {
+    font-size: 4.2rem;
+  }
+
+  .plan .benefits {
+    font-size: 1.45rem;
+  }
+
+  .plan .learn-more {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .plans {
+    flex-direction: column;
+    gap: 3rem;
+    box-shadow: none;
+  }
+
+  .plan {
+    width: 60vw;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .plan.professional {
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 725px) {
+  .bg-bottom {
+    display: none;
+  }
+
+  .bg-top {
+    right: -15%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .plan {
+    width: 85vw;
+  }
+
+  .bg-top {
+    display: none;
+  }
+}
